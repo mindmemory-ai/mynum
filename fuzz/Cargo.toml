@@ -1,0 +1,28 @@
+[package]
+name = "mynum-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.mynum]
+path = ".."
+
+[[bin]]
+name = "mpz_arithmetic"
+path = "fuzz_targets/mpz_arithmetic.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "mpf_parse"
+path = "fuzz_targets/mpf_parse.rs"
+test = false
+doc = false
+bench = false
